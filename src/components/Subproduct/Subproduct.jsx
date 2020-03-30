@@ -2,21 +2,23 @@ import React from "react";
 
 import "./Subproduct.scss";
 
-const Subproduct = ({ subProductData }) => {
+const Subproduct = ({ subproductData }) => {
   return (
     <div className="subproduct">
-      {subProductData.length
-        ? subProductData?.map(({ Name, Type, descriptionen, ProductID }) => {
+      {subproductData.length
+        ? subproductData?.map(subproduct => {
             return (
-              <div className="subproduct__data" key={ProductID}>
-                <div className="subproduct__data_name">{Name}</div>
-                <div className="subproduct__data_type">{Type}</div>
-                <div className="subproduct__data_desc">{descriptionen}</div>
+              <div className="subproduct__data" key={subproduct.ProductID}>
+                <div className="subproduct__data_name">{subproduct.Name}</div>
+                <div className="subproduct__data_type">{subproduct.Type}</div>
+                <div className="subproduct__data_desc">
+                  {subproduct.descriptionen}
+                </div>
                 <hr />
               </div>
             );
           })
-        : "Данных нет"}
+        : "Под-продуктов нет"}
     </div>
   );
 };

@@ -9,12 +9,12 @@ const Products = () => {
 
   const getProductsData = () => {
     const api = "https://support.stream-labs.com/api/products";
+
     fetch(api)
       .then(response => {
         return response.json();
       })
       .then(data => {
-        //console.log(data);
         setProductsData(data);
         setFilteredProductsData(filterByProduct(data));
       });
@@ -28,18 +28,18 @@ const Products = () => {
       return acc;
     }, []);
 
-  const filterSubproductsData = (arr, productID) => {
-    return arr.filter(({ ParentID }) => ParentID === productID);
-  };
+  const filterBySubproducts = (arr, productID) =>
+    arr.filter(({ ParentID }) => ParentID === productID);
 
   useEffect(getProductsData, []);
+
   return (
     <div className="products">
       {filteredProductsData?.map(productData => {
         return (
           <SingleProduct
             productData={productData}
-            subProductsData={filterSubproductsData(
+            subproductsData={filterBySubproducts(
               productsData,
               productData.ProductID
             )}

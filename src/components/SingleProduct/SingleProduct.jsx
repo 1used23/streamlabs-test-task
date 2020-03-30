@@ -3,7 +3,7 @@ import { Subproduct } from "../../components";
 
 import "./SingleProduct.scss";
 
-const SingleProduct = ({ productData, subProductsData }) => {
+const SingleProduct = ({ productData, subproductsData }) => {
   const { Name, descriptionen } = productData;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ const SingleProduct = ({ productData, subProductsData }) => {
       </div>
       {isOpen && (
         <div className="product__subproducts">
-          <Subproduct subProductData={subProductsData} />
+          <Subproduct subproductData={subproductsData} />
         </div>
       )}
     </div>
