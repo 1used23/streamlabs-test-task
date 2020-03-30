@@ -1,0 +1,15 @@
+.subproduct {
+    background-color: rgb(235, 235, 235);
+    &__data {
+        margin-bottom: 5px;
+        &_name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        &_type {
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+    }
+}
